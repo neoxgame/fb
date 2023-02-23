@@ -4,7 +4,7 @@
   "description": "Facebook App For Windows Desktop",
   "main": "index.js",
   "scripts": {
-    "start": "electron .",
+    "start": "electron --no-sandbox .",
     "build": "electron-builder"
   },
   "author": "mohd-arif-un",
